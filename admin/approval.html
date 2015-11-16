@@ -1,0 +1,197 @@
+<h1>Order ID: {{order.id}}</h1>
+<hr>
+
+<!--<div class="row">-->
+<!--<p class="lead text-center">Products</p>-->
+
+<div class="row">
+    <div class="well text-left">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <td>ID</td>
+                <td>{{order.id}}</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Project Name</td>
+                <td>{{order.project_name}}</td>
+            </tr>
+            <tr>
+                <td>Items</td>
+                <td>{{order.items.length}}</td>
+            </tr>
+            <tr>
+                <td>Total Amount</td>
+                <td>{{order.total_price}}</td>
+            </tr>
+            <tr>
+                <td>Professor</td>
+                <td>{{order.prof_name + ' ('+order.prof_email+')'}}</td>
+            </tr>
+            <tr>
+                <td>Student</td>
+                <td>{{
+                    (order.student_name.length>0?order.student_name: '--')
+                    + (order.student_email.length>0?' ('+order.student_email + ')': '--')
+                    }}
+                </td>
+            </tr>
+            <tr>
+                <td>Date Requested</td>
+                <td>{{order.date_created}}</td>
+            </tr>
+            <tr>
+                <td>Date Needed By</td>
+                <td>{{order.date_needed}}</td>
+            </tr>
+            <tr>
+                <td>Suggested Vendor</td>
+                <td>{{order.vendor}}</td>
+            </tr>
+            <tr>
+                <td>Requested By</td>
+                <td>{{order.user_type}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <p class="lead text-center"><b>Items</b></p>
+
+            <div class="col-xs-12">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Item No.</td>
+                        <td>Qty</td>
+                        <td>Description</td>
+                        <td>Purpose</td>
+                        <td>Unit Price</td>
+                        <td>Total Price</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in order.items">
+                        <td>
+                            {{item.id}}
+                        </td>
+                        <td>
+                            {{item.item_no}}
+                        </td>
+                        <td>
+                            {{item.qty}}
+                        </td>
+                        <td>
+                            {{item.description}}
+                        </td>
+                        <td>
+                            {{item.purpose}}
+                        </td>
+                        <td>
+                            {{item.unit_price}}
+                        </td>
+                        <td>
+                            {{item.total_price}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><b>Total</b></td>
+                        <td><b>{{order.total_price}}</b></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>{{approval.id}}</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Req No.</td>
+                        <td>{{approval.req_no}}</td>
+                    </tr>
+                    <tr>
+                        <td>Items</td>
+                        <td>{{approval.items.length}}</td>
+                    </tr>
+                    <tr>
+                        <td>Delivery Address</td>
+                        <td>{{approval.delivery_address}}</td>
+                    </tr>
+                    <tr>
+                        <td>Delivery Attention</td>
+                        <td>{{approval.delivery_attn}}</td>
+                    </tr>
+                    <tr>
+                        <td>Chartstring(s)</td>
+                        <td>{{approval.chartstrings}}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr class="text-center">
+                        <td>ID</td>
+                        <td>No.</td>
+                        <td>Fund (2)</td>
+                        <td>Dept (5)</td>
+                        <td>Program (5)</td>
+                        <td>Acct (6)</td>
+                        <td>Mycode (6)</td>
+                        <td>Project (5)</td>
+                        <td>Activity (3)</td>
+                        <td>Bud Ref (2)</td>
+                        <td>Amount $</td>
+                        <td>Dept Authorized Signer</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="a in approval.items">
+                        <td>{{a.id}}</td>
+                        <td>{{a.item_no}}</td>
+                        <td>{{a.fund}}</td>
+                        <td>{{a.dept}}</td>
+                        <td>{{a.program}}</td>
+                        <td>{{a.acct}}</td>
+                        <td>{{a.mycode}}</td>
+                        <td>{{a.project}}</td>
+                        <td>{{a.activity}}</td>
+                        <td>{{a.bud_ref}}</td>
+                        <td>{{a.amount}}</td>
+                        <td>{{a.dept_auth_sign}}</td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<br/>
+<br/>
+<div class="row col-centered">
+    <button class="btn btn-primary btn-lg btn-block" ng-show="order.status=='processed'" ng-disabled="formError" ng-click="ackOrder(order.id)">
+        Submit Acknowledgement
+    </button>
+    <button class="btn btn-success btn-lg btn-block" ng-disabled="true" ng-show="order.status=='ack'" ng-disabled="formError" ng-click="ackOrder(order.id)">
+        Acknowledged
+    </button>
+
+</div>
+<br/>
+<br/>
+<br/>

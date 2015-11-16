@@ -1,0 +1,255 @@
+<h1>Order ID: {{order.id}}</h1>
+<hr>
+
+<!--<div class="row">-->
+<!--<p class="lead text-center">Products</p>-->
+
+<div class="row">
+    <div class="well text-left">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <td>ID</td>
+                <td>{{order.id}}</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Project Name</td>
+                <td>{{order.project_name}}</td>
+            </tr>
+            <tr>
+                <td>Items</td>
+                <td>{{order.items.length}}</td>
+            </tr>
+            <tr>
+                <td>Total Amount</td>
+                <td>{{order.total_price}}</td>
+            </tr>
+            <tr>
+                <td>Professor</td>
+                <td>{{order.prof_name + ' ('+order.prof_email+')'}}</td>
+            </tr>
+            <tr>
+                <td>Student</td>
+                <td>{{
+                    (order.student_name.length>0?order.student_name: '--')
+                    + (order.student_email.length>0?' ('+order.student_email + ')': '--')
+                    }}
+                </td>
+            </tr>
+            <tr>
+                <td>Date Requested</td>
+                <td>{{order.date_created}}</td>
+            </tr>
+            <tr>
+                <td>Date Needed By</td>
+                <td>{{order.date_needed}}</td>
+            </tr>
+            <tr>
+                <td>Suggested Vendor</td>
+                <td>{{order.vendor}}</td>
+            </tr>
+            <tr>
+                <td>Requested By</td>
+                <td>{{order.user_type}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <p class="lead text-center"><b>Items</b></p>
+
+            <div class="col-xs-12">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Item No.</td>
+                        <td>Qty</td>
+                        <td>Description</td>
+                        <td>Purpose</td>
+                        <td>Unit Price</td>
+                        <td>Total Price</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in order.items">
+                        <td>
+                            {{item.id}}
+                        </td>
+                        <td>
+                            {{item.item_no}}
+                        </td>
+                        <td>
+                            {{item.qty}}
+                        </td>
+                        <td>
+                            {{item.description}}
+                        </td>
+                        <td>
+                            {{item.purpose}}
+                        </td>
+                        <td>
+                            {{item.unit_price}}
+                        </td>
+                        <td>
+                            {{item.total_price}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><b>Total</b></td>
+                        <td><b>{{order.total_price}}</b></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div>
+
+    <form name="approvalDetails" class="form-horizontal col-sm-4 col-centered">
+        <fieldset class="form-group"
+                  ng-class="{ 'has-error' : approvalDetails.req_no.$invalid && !approvalDetails.req_no.$pristine }">
+            <label for="req_no">Requisition No.</label>
+            <input id="req_no" name="req_no" class="form-control" ng-model="approval.req_no"
+                   placeholder="Requisition No." ng-minlength="1" required/>
+
+            <p ng-show="approvalDetails.req_no.$invalid && !approvalDetails.req_no.$pristine"
+               class="help-block">Cannot be empty.</p>
+        </fieldset>
+        <fieldset class="form-group"
+                  ng-class="{ 'has-error' : approvalDetails.delivery_address.$invalid && !approvalDetails.delivery_address.$pristine }">
+            <label for="delivery_address">Address for delivery</label>
+            <input id="delivery_address" name="delivery_address" class="form-control" ng-model="approval.delivery_address"
+                   placeholder="Enter address" ng-minlength="1" required/>
+
+            <p ng-show="approvalDetails.delivery_address.$invalid && !approvalDetails.delivery_address.$pristine"
+               class="help-block">Cannot be empty.</p>
+        </fieldset>
+        <fieldset class="form-group"
+                  ng-class="{ 'has-error' : approvalDetails.delivery_attn.$invalid && !approvalDetails.delivery_attn.$pristine }">
+            <label for="delivery_attn">Attention for delivery</label>
+            <input id="delivery_attn" name="delivery_attn" class="form-control"
+                   ng-model="approval.delivery_attn"
+                   ng-minlength="1" required/>
+
+            <p ng-show="approvalDetails.delivery_attn.$invalid && !approvalDetails.delivery_attn.$pristine"
+               class="help-block">Cannot be empty.</p>
+        </fieldset>
+        <fieldset class="form-group"
+                  ng-class="{ 'has-error' : approvalDetails.chartstrings.$invalid && !approvalDetails.chartstrings.$pristine }">
+            <label for="chartstrings">Chartstring(s)</label>
+            <input id="chartstrings" name="chartstrings" class="form-control"
+                   ng-model="approval.chartstrings"
+                   ng-minlength="1" required/>
+
+            <p ng-show="approvalDetails.chartstrings.$invalid && !approvalDetails.chartstrings.$pristine"
+               class="help-block">Cannot be empty.</p>
+        </fieldset>
+
+    </form>
+
+</div>
+<div class="row">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr class="text-center">
+            <td>No.</td>
+            <td>Fund (2)</td>
+            <td>Dept (5)</td>
+            <td>Program (5)</td>
+            <td>Acct (6)</td>
+            <td>Mycode (6)</td>
+            <td>Project (5)</td>
+            <td>Activity (3)</td>
+            <td>Bud Ref (2)</td>
+            <td>Amount $</td>
+            <td>Dept Authorized Signer</td>
+            <td style="width:50px;">Remove</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="aItem in approvalItems">
+
+            <td>
+                {{aItem.item_no=$index+1; $index+1}}
+            </td>
+            <td>
+                <div class="input-group spinner">
+                    <input id="fund" type="number" class="form-control" name="fund"
+                           ng-model="aItem.fund" required="true" default="1" min="0" step="0.01" money
+                           precision="-1"/>
+            </td>
+            <td>
+                <input id="dept" type="text" class="form-control" name="dept"
+                       ng-model="aItem.dept"/>
+            </td>
+            <td>
+                <input id="program" type="text" class="form-control" name="program"
+                       ng-model="aItem.program"/>
+            </td>
+            <td>
+                <input id="acct" type="text" class="form-control" name="acct"
+                       ng-model="aItem.acct"/>
+            </td>
+
+            <td class="text-right">
+                <input id="mycode" type="text" class="form-control" name="mycode"
+                       ng-model="aItem.mycode"/>
+            </td>
+            <td class="text-right">
+                <input id="project" type="text" class="form-control" name="project"
+                       ng-model="aItem.project"/>
+            </td>
+            <td class="text-right">
+                <input id="activity" type="text" class="form-control" name="activity"
+                       ng-model="aItem.activity"/>
+            </td>
+            <td class="text-right">
+                <input id="bud_ref" type="text" class="form-control" name="bud_ref"
+                       ng-model="aItem.bud_ref"/>
+            </td>
+            <td class="text-right">
+                <input id="amount" type="text" class="form-control" name="amount"
+                       ng-model="aItem.amount"/>
+            <td class="text-right">
+                <input id="dept_auth_sign" type="text" class="form-control" name="dept_auth_sign"
+                       ng-model="aItem.dept_auth_sign"/>
+            </td>
+            <td class="text-center">
+                <button class="btn btn-danger" ng-click="removeApprovalItem($index)" ng-disabled="approvalItems.length <= 1">x</button>
+            </td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+<button class="btn btn-primary col-xs-6 center-block" style="display:block;float:none;" ng-click="addRow()">Add
+    Item
+</button>
+<br/>
+<br/>
+<div class="row col-centered">
+    <div class="alert alert-danger" role="alert" ng-show="formError">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        Something's incomplete. Please fill up the complete form to proceed.
+    </div>
+    <button class="btn btn-success btn-lg btn-block" ng-disabled="formError" ng-click="submitApproval()">
+        Submit Approval
+    </button>
+
+</div>
+<br/>
+<br/>
+<br/>

@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Project Name</td>
+                    <td>Items</td>
+                    <td>Amount</td>
+                    <td>Professor</td>
+                    <td>Needed By</td>
+                    <td>Req By</td>
+                    <td>Status</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="order in orders">
+                    <td><a ng-href="#/order/{{order.id}}">{{order.id}}</a></td>
+                    <td>{{order.project_name}}</td>
+                    <td>{{order.items.length}}</td>
+                    <td>{{order.total_price}}</td>
+                    <td>{{order.prof_name}}</td>
+                    <td>{{order.date_needed}}</td>
+                    <td>{{order.user_type}}</td>
+                    <td>{{order.status}}</td>
+                    <td>
+                        <a ng-href="#/order/{{order.id}}" class="btn btn-primary" ng-if="order.status === 'pending'">Approve</a>
+                        <!--<button ng-click="approveOrder(order.id)" class="btn btn-success" ng-if="order.status === 'pending'">Approve</button>-->
+                        <button class="btn btn-primary" disabled ng-if="order.status === 'processed'">Approved</button>
+                        <button class="btn btn-success" disabled ng-if="order.status === 'ack'">Acknowledged</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
