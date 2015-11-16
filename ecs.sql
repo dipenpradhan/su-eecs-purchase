@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 16, 2015 at 02:04 PM
+-- Generation Time: Nov 16, 2015 at 11:30 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.6.10
 
@@ -123,6 +123,50 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `email`, `password`, `name`, `type`) VALUES
+(1, 'dipenpradhan13@gmail.com', 'test', 'Tester', 'professor,student,admin,approver,reviewer'),
+(2, 'esyu@syr.edu', '', 'Yu, Edmund', 'professor'),
+(3, 'heyinWang@syr.edu', '', 'Yin, Heng', 'professor'),
+(4, 'svelipas@syr.edu', '', 'Velipasalar, Senem', 'professor'),
+(5, 'varshney@syr.edu', '', 'Varshney, Pramod', 'professor'),
+(6, 'wctetley@syr.edu', '', 'Tetley, William', 'professor'),
+(7, 'jtang02@syr.edu', '', 'Tang, Jian', 'professor'),
+(8, 'ytang100@syr.edu', '', 'Tang, Yuzhe', 'professor'),
+(9, 'susounda@syr.edu', '', 'Soundarajan, Sucheta', 'professor'),
+(10, 'schleret@syr.edu', '', 'Schlereth, Fred', 'professor'),
+(11, 'tksarkar@syr.edu', '', 'Sarkar, Tapan', 'professor'),
+(12, 'jsroyer@syr.edu', '', 'Royer, James', 'professor'),
+(13, 'qiqiu@syr.edu', '', 'Qiu, Qinru', 'professor'),
+(14, 'vvphoha@syr.edu', '', 'Phoha, Vir', 'professor'),
+(15, 'jcoh@syr.edu', '', 'Oh, Jae', 'professor'),
+(16, 'sbolder@syr.edu', '', 'Older, Susan', 'professor'),
+(17, 'ckmohan@syr.edu', '', 'Mohan, Chilukuri', 'professor'),
+(18, 'mehrotra@syr.edu', '', 'Mehrotra, Kishan', 'professor'),
+(19, 'dlmarcy@syr.edu', '', 'Marcy, Duane', 'professor'),
+(20, 'yliang06@syr.edu', '', 'Liang, Yinobin', 'professor'),
+(21, 'leejk@syr.edu', '', 'Lee, Jay K.', 'professor'),
+(22, 'alee18@syr.edu', '', 'Lee, Andrew', 'professor'),
+(23, 'rjirwin@syr.edu', '', 'Irwin, Robert', 'professor'),
+(24, 'mcgursoy@syr.edu', '', 'Gursoy, Mustafa Cenk', 'professor'),
+(25, 'jiwarzal@syr.edu', '', 'Graham, Jennifer', 'professor'),
+(26, 'pkghosh@syr.edu', '', 'Ghosh, Prasanta', 'professor'),
+(27, 'jfawcett@twcny.rr.com', '', 'Fawcett, James', 'professor'),
+(28, 'makan@syr.edu', '', 'Fardad, Makan', 'professor'),
+(29, 'eercanli@syr.edu', '', 'Ercanli, Ehat', 'professor'),
+(30, 'seftekha@syr.edu', '', 'Eftekharnejad, Sara', 'professor'),
+(31, 'jcho100@syr.edu', '', 'Choi, Jun Hwan', 'professor'),
+(32, 'wedu@syr.edu', '', 'Du, Kevin', 'professor'),
+(33, 'skchin@syr.edu', '', 'Chin, Shiu-Kai', 'professor'),
+(34, 'crchen@syr.edu', '', 'Chen, C. Y. Roger', 'professor'),
+(35, 'bichen@syr.edu', '', 'Chen, Biao', 'professor'),
+(36, 'chapin@syr.edu', '', 'Chapin, Stephan', 'professor'),
+(37, 'tbujanov@syr.edu', '', 'Bujanovic, Tomislav', 'professor'),
+(38, 'blair@syr.edu', '', 'Blair, Howard', 'professor');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -170,22 +214,22 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `approval`
 --
 ALTER TABLE `approval`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `approval_items`
 --
 ALTER TABLE `approval_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `order_product`
 --
 ALTER TABLE `order_product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT for table `product`
 --
