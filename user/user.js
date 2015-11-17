@@ -1,5 +1,5 @@
 angular.module('eecs-user', ['autocomplete'])
-    .constant('env', 'dev')
+    .constant('env', 'prod')
     .constant(
         'base_url', {
             dev: 'http://localhost/su-ecs-purchase/api/index.php',
